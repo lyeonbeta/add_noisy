@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #读取图像
-src = cv2.imread(r'K:\Master_thesis\IMG_Grab\liquid images\chunyue.png')
+src = cv2.imread(r'.\1.png')
 
 #获取BGR三个通道的像素值
 b, g, r = cv2.split(src)
