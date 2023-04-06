@@ -1,0 +1,5 @@
+import os
+for i in range(1,40):
+    path = r'G:\1000PIC\pridnet\SIDD_format'+ "/"+str(i)
+    print(path)
+    os.mkdir(path)
