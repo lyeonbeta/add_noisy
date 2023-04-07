@@ -1,0 +1,22 @@
+import cv2
+import os
+import numpy as np
+
+
+def add_speckle_noise(input_dir,out_dir):
+    for filename in os.listdir(input_dir):
+        print(filename)  # 仅仅是为了测试
+        img = cv2.imread(input_dir + "/" + filename)
+        w = img.shape[0]
+        h = img.shape[1]
+        channel = 3
+        value =0.5
+
+        gauss = np.random.randn(w, h, channel)
+        noisy_img = img + img * gauss * value
+        noise_img = np.clip(noisy_img, a_min=0, a_max=255)
+        cv2.imwrite(out_dir + "/" + filename, noise_img)
+
+input_dir=r"./1"
+out_dir=r"./2"
+add_speckle_noise(input_dir,out_dir)
