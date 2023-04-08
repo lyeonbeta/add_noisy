@@ -1,0 +1,20 @@
+import numpy as np
+import cv2
+
+# 加载图像
+img = cv2.imread(r'1.png')
+
+# 为图像添加伽马噪声
+gamma = 5  # 设置伽马值
+noise = np.random.poisson(0.5, img.shape) / 255.0  # 生成泊松噪声
+img_gamma = np.power(img / 255.0, gamma)  # 对图像进行伽马变换
+img_gamma_noise = np.power(img / 255.0 + noise, gamma)  # 添加伽马噪声
+
+# 显示结果
+# cv2.imshow('Original', img)
+# cv2.imshow('Gamma', img_gamma)
+cv2.imshow('Gamma with Noise', img_gamma_noise)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+#保存图片
+# cv2.imwrite(r"K:\Master_thesis\IMG_Grab\Wave_Filter\Add_noise\addNoiseImg\mixli_gama.png",img_gamma_noise)
