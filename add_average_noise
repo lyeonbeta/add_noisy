@@ -1,0 +1,22 @@
+import cv2
+import numpy as np
+
+# 加载图像
+img = cv2.imread(r"1.png")
+
+# 噪声强度
+noise_intensity = 100
+
+# 生成均匀分布的随机数数组
+noise = np.random.uniform(-noise_intensity, noise_intensity, img.shape)
+
+# 将噪声数组加入原始图像中
+noisy_img = img + noise
+
+# 将图像像素值限制在0到255之间
+noisy_img = np.clip(noisy_img, 0, 255)
+
+# 可选：显示添加了噪声的图像
+cv2.imshow("Noisy Image", noisy_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
